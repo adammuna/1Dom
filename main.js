@@ -202,46 +202,71 @@
 
 
 
+// // }
+// const title = document.getElementById("title")
+// const subHeader = document.getElementsByTagName('h2')
+// const uniqueHeaders = document.getElementsByClassName('unique')
+// const header = document.querySelectorAll('#superUnique')
+// const body = document.getElementsByTagName("body")[0]
+// const input = document.querySelector('#myInput')
+// const btn = document.getElementById("myBtn")
+
+
+
+// const CreatePost = function () {
+//       const text = input.value
+//       const post = document.createElement('h1')
+//       const hr = document.createElement('hr')
+//       post.innerText =text
+//       body.append(post,hr)
+//       input.value = ''
+   
 // }
-const title = document.getElementById("title")
-const subHeader = document.getElementsByTagName('h2')
-const uniqueHeaders = document.getElementsByClassName('unique')
-const header = document.querySelectorAll('#superUnique')
-const body = document.getElementsByTagName("body")[0]
-const input = document.querySelector('#myInput')
-const btn = document.getElementById("myBtn")
+// btn.addEventListener('click' , function(){
 
 
+// })
 
-const CreatePost = function () {
-      const text = input.value
-      const post = document.createElement('h1')
-      const hr = document.createElement('hr')
-      post.innerText =text
-      body.append(post,hr)
-      input.value = ''
+//  btn.addEventListener('click',creatpost)
+
+
+//  input.addEventListener('keydown',function (event) {
+//    if (event.key == "enterkey") {
+//       creatpost()
+//    }
+   
+// })
+  
+
+// const dynamicelemnt = document.createElement('div')
+// dynamicelemnt.id = "dynamicEle"
+// dynamicelemnt.classList.add('dynamic')
+// body.append(dynamicelemnt)                                                                                           }
+const body = document.getElementById('body')
+const input =document.getElementById('input')
+const btn= document.getElementById('btn') 
+const getweather = async function (city) {
+   console.log("loading data .....");
+   const weather = await $.get ('https://rami-weather.herokuapp.com/weather/${city}')
+   return weather
+}
+btn.addEventListener("click",async function () {
+   const city = input.value
+try {
+ const weather = await getweather(city)
+ input.value= ''
+ console.log(weather,tempreture);
+ const img = document.createElement('img')
+ img.src = 'https://rami-weather.herokuapp.com/' + weather.conditionPic;
+ body.append(img)
+} catch (error) {
+   console.log(error);
+   alert('error')
    
 }
-btn.addEventListener('click' , function(){
 
-
-})
-
- btn.addEventListener('click',creatpost)
-
-
- input.addEventListener('keydown',function (event) {
-   if (event.key == "enterkey") {
-      creatpost()
-   }
    
-})
-  
-
-const dynamicelemnt = document.createElement('div')
-dynamicelemnt.id = "dynamicEle"
-dynamicelemnt.classList.add('dynamic')
-body.append(dynamicelemnt)   
+}
 
 
 
@@ -254,4 +279,4 @@ body.append(dynamicelemnt)
   
   
   
-
+)
